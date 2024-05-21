@@ -1,0 +1,982 @@
+/* Los keyframes usados para las animaciones */
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinandout {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes mostrarAnimacion {
+  0% {
+    opacity: 0;
+    transform: translateY(150%);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scale(3);
+  }
+}
+
+@keyframes waveAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes transitionAnimation {
+  0% {
+    transform: scaleX(0%);
+    /* Comienza sin ancho (escala en X) */
+  }
+
+  100% {
+    transform: scaleX(100%);
+    /* Termina con el ancho completo */
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(75%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-75%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*Fuente custom que he utilizado*/
+
+@font-face {
+  font-family: "Chomsky";
+  src: url("Chomsky.woff") format("woff");
+}
+
+@font-face {
+  font-family: "west";
+  src: url("west.woff") format("woff");
+}
+
+@font-face {
+  font-family: "west2";
+  src: url("west2.woff") format("woff");
+}
+
+/*^Fondo estatico*/
+
+body {
+  background: url("img/landscape.jpg") no-repeat center center fixed;;
+  background-size: cover;
+}
+
+/* Pantalla de inicio */
+
+#inicio {
+  position: relative;
+  display: grid;
+  z-index: 8999;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+#imagenInicio {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  
+  /* Transiciones suaves */
+  transform-origin: center center;
+  /* Establecemos el origen de la transformación en el centro */
+  transform: scale(1);
+  /* Escala inicial */
+}
+
+#empezar {
+  display: block;
+  position: inherit;
+  grid-area: 1 / 1;
+  /* Coloca el texto en la misma celda que la imagen */
+  justify-self: center;
+  /* Centra horizontalmente el texto */
+  align-self: center;
+  /* Centra verticalmente el texto */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  color: aliceblue;
+  font-size: 3vw;
+  font-family: "west";
+  cursor: pointer;
+}
+
+#empezar:hover {
+  animation: zoom 0.5s infinite alternate;
+  /* Aplicamos la animación al pasar el mouse sobre el div */
+  color: chartreuse;
+}
+
+#instrucciones {
+  display: block;
+  position: inherit;
+  grid-area: 1 / 1;
+  /* Coloca el texto en la misma celda que la imagen */
+  justify-self: center;
+  /* Centra horizontalmente el texto */
+  align-self: center;
+  /* Centra verticalmente el texto */
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  color: aliceblue;
+  font-size: 3vw;
+  font-family: "west";
+  cursor: pointer;
+  margin-top: 10%;
+}
+
+#instrucciones:hover {
+  animation: zoom 0.5s infinite alternate;
+  /* Aplicamos la animación al pasar el mouse sobre el div */
+  color: chartreuse;
+}
+
+#fondo {
+  margin: 0 auto;
+  width: 1230px;
+  height: 960px;
+  display: none;
+  z-index: 9000;
+  /* Ocultamos el div fondo por defecto */
+  grid-template-columns: 5% 8% 8% 8% 8% 8% 4% 2% 4% 8% 8% 8% 8% 8% 5%;
+  grid-template-rows: 5% 10% 30% 12% 6% 10% 10% 10%;
+  background-image: url("img/saloon.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fadein 0.7s ease-in, zoomin 0.7s ease-in;
+}
+
+/* Estilos y colocacion de los nombres y los divs de salud */
+
+#nombreJugador {
+  font-family: "west2";
+  font-size: 2vw;
+  color: rgb(221, 146, 7);
+  grid-column: 2/5;
+  grid-row: 2;
+}
+
+#vidaJ {
+  text-align: left;
+  font-size: 3vw;
+  grid-column: 2/5;
+  grid-row: 3;
+}
+
+#nombreIA {
+  text-align: right;
+  font-family: "Chomsky";
+  font-size: 2vw;
+  color: rgb(221, 146, 7);
+  grid-column: 12/15;
+  grid-row: 2;
+}
+
+#vidaIA {
+  text-align: right;
+  font-size: 3vw;
+  grid-column: 12/15;
+  grid-row: 3;
+}
+
+.corazon {
+  height: 25%;
+  width: 12%;
+  display: inline-block;
+}
+
+/* Estilos y ubicacion de la baraja y las cartas de los jugadores */
+
+#flecha {
+  align-self: end;
+  justify-self: center;
+  display: none;
+  grid-column: 7/10;
+  grid-row-end: 5;
+  height: 70%;
+  width: 70%;
+}
+
+#baraja {
+  height: 100%;
+  width: 100%;
+  grid-row: 5;
+  grid-column: 7/10;
+  cursor: pointer;
+}
+
+#manoJugador {
+  background-image: url("img/tapete.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-row: 6/8;
+  grid-column: 2/8;
+  border-radius: 1em;
+}
+
+.carta {
+  position: relative;
+  border-radius: 0.5em;
+  transition: transform 0.7s ease;
+  margin: 0.1vw;
+  margin-top: 0.4vw;
+  height: 90%;
+  width: 19%;
+}
+
+#manoia {
+  background-image: url("img/tapete.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-row: 6/8;
+  grid-column: 9/-2;
+  border: 0.1vw solid black;
+  border-radius: 1em;
+}
+
+#manoJugador img:hover {
+  transform: scale(2.5);
+  z-index: 100;  
+}
+
+/* Estilos span fin de turno */
+
+#endTurn {
+  display: none;
+  margin-top: 1vw;
+  text-align: center;
+  grid-column: 6/11;
+  grid-row: 8/9;
+  color: aliceblue;
+  font-size: 1.5vw;
+  font-family: "west2";
+  cursor: pointer;
+}
+
+#endTurn:hover {
+  animation: zoom 0.5s infinite alternate;
+  color: chartreuse;
+}
+
+/*Estilos jugar carta IA */
+
+#flotante {
+  grid-column: 6/11;
+  grid-row: 2/5;
+  padding: 10px;
+  display: none;
+  /* Para ocultar el elemento inicialmente */
+}
+
+.cartaFlotante {
+  border-radius: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+/*Ubicacion de los divs para iconos defensa y acciones*/
+
+#defensaJugador {
+  grid-column: 5/6;
+  grid-row: 3;
+}
+
+#defensaIA {
+  grid-column: 11/12;
+  grid-row: 3;
+}
+
+#accionesJugador {
+  grid-column: 6/7;
+  grid-row: 5/6;
+}
+
+#accionesIA {
+  grid-column: 10/11;
+  grid-row: 5/6;
+}
+
+.defIcon {
+  height: 35%;
+  width: 100%;
+}
+
+.bullet {
+  height: 70%;
+  width: 50%;
+}
+
+/* Estilos de las animaciones */
+
+#animacionJ {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  grid-column: 3/5;
+  grid-row: 4/4;
+}
+
+#animacionIA {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  grid-column: 12/14;
+  grid-row: 4/4;
+}
+
+.animacion {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+
+.curacion {
+  animation: mostrarAnimacion 2s ease-in-out;
+}
+
+#disparoJ {
+  align-self: center;
+  text-align: center;
+  grid-column: 2/4;
+  grid-row: 4/4;
+}
+
+#disparoIA {
+  align-self: center;
+  text-align: center;
+  grid-column: 12/14;
+  grid-row: 4/4;
+}
+
+.disparo {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  height: 150%;
+  width: 150%;
+}
+
+/* Estilos de la pantalla de derrota */
+
+#defeat-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: none;
+  /* Comienza oculta */
+  transform-origin: right;
+  z-index: 9998;
+  /* Asegura que la pantalla de transición esté por encima de otros elementos */
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.93),
+    rgba(0, 0, 0, 0.96),
+    rgba(0, 0, 0, 1)
+  );
+  /* Un degradado de negro transparente */
+  animation: transitionAnimation 2s linear forwards,
+    waveAnimation 4s ease infinite;
+  /* Combina las animaciones de transición y olas */
+}
+
+#youDied {
+  color: white;
+  font-size: 2vw;
+  font-family: "west";
+  text-align: center;
+  justify-content: center;
+  /* Centra los elementos horizontalmente */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+  height: 960px;
+  width: 100%;
+  z-index: 9999;
+  display: none;
+  animation: fadein 3s ease-in;
+}
+
+#youDied img {
+  margin-top: 5%;
+}
+
+#defeatName {
+  font-family: "Chomsky";
+  font-style: italic;
+  font-size: 3vw;
+}
+
+#reloadD {
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#defeat-screen #reloadD:hover {
+  animation: zoom 0.5s infinite alternate;
+  color: red;
+}
+
+/*Estilos de la pantalla de victoria*/
+
+#victory-screen {
+  display: none;
+  font-size: 2vw;
+  justify-content: center;
+  height: 960px;
+  width: 100%;
+  text-align: center;
+  animation: slideFromTop 3s ease;
+}
+
+#victoryText {
+  color: black;
+  font-family: "west";
+  width: 80%;
+  margin-top: 10%;
+}
+
+#victoryGif {
+  width: auto;
+}
+
+#victoryGif img {
+  border-radius: 1em;
+}
+
+#victoryGif img {
+  max-width: 30%;
+  height: auto;
+}
+
+#nombreVictoria {
+  font-family: "Chomsky";
+  font-style: italic;
+  font-size: 3vw;
+}
+
+#reloadV {
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#reloadV:hover {
+  animation: zoom 0.5s infinite alternate;
+  color: green;
+}
+
+/*Login*/
+
+#cartel {
+  margin: 0 auto;
+  display: grid;
+  width: 681px;
+  height: 960px;
+  grid-template-columns: 30% 40% 20% 10%;
+  grid-template-rows: 70% 4% 4% 4% 1% 5% 12%;
+  background-image: url("img/cartel.jpg");
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#contrato {
+  margin: 0 auto;
+  display: none;
+  width: 840px;
+  height: 960px;
+  text-align: center;
+  background-image: url("img/contrato.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+
+#registerForm {
+  font-family: "west";
+  font-size: 1.5vw;
+  display: grid;
+  width: 840px;
+  height: 960px;
+  grid-template-columns: 35% 15% 15% 15% 20%;
+  grid-template-rows: 20% 5% 5% 5% 5% 5% 5% 10% 40%;
+}
+
+#registerForm input {
+  text-align: center;
+  background: unset;
+  border-style: unset;
+  outline: none;
+}
+
+#registerForm input::placeholder {
+  text-align: center;
+}
+
+#nombreRegistro {
+  grid-column: 2/4;
+  grid-row: 2;
+}
+
+#passRegistro {
+  grid-column: 2/4;
+  grid-row: 4;
+}
+
+#passConfirm {
+  grid-column: 2/4;
+  grid-row: 6;
+}
+
+#firmar {
+  margin: auto;
+  grid-column: 2/3;
+  grid-row: 8;
+}
+
+#imgRegistro {
+  height: 100%;
+  width: 100%;
+  grid-column: 3/4;
+  grid-row: 8;
+  cursor: pointer;
+}
+
+.tipsVaquero {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  animation: fadeinandout 5s ease-in-out;
+  align-self: center;
+  justify-self: center;
+}
+
+.tipsVaquero img {
+  height: auto;
+  width: 100%;
+}
+
+#anuncio {
+  display: none;
+}
+
+#anuncio2 {
+  display: none;
+}
+
+#anuncio3 {
+  display: none;
+}
+
+#anuncio4{
+  display: none;
+  grid-row: 1/-1;  
+}
+
+#requestName {
+  font-family: "west2";
+  font-size: 1.7vw;
+  grid-row: 2;
+  grid-column: 2;
+  cursor: default;
+}
+
+#inputName {
+  font-family: "west2";
+  font-size: 1.7vw;
+  grid-row: 3;
+  grid-column: 2;
+}
+
+#inputName input {
+  background: unset;
+  border-style: unset;
+  outline: none;
+}
+
+#inputPass {
+  font-family: "west2";
+  font-size: 2vw;
+  grid-row: 4;
+  grid-column: 2;
+}
+
+#inputPass input {
+  background: unset;
+  border-style: unset;
+  outline: none;
+}
+
+#submit {
+  grid-row: 3/5;
+  grid-column: 3;
+}
+
+#submit img {
+  width: auto;
+  height: 100%;
+}
+
+#submit img:hover {
+  animation: zoom 0.5s infinite alternate;
+}
+
+#goToRegister {
+  font-family: "west2";
+  font-size: 2vw;
+  grid-row: 6;
+  grid-column: 1/-1;
+
+  animation: zoom 0.5s infinite alternate;
+}
+
+#goToRegister span {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/*Ranking*/
+
+#ranking {
+  margin-top: 10%;
+  width: 100%;
+  font-size: 3vw;
+  font-family: "west2";
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  vertical-align: middle;
+  animation: slideFromTop 3s ease;
+}
+
+#ranking table {
+  font-family: "west";
+  font-size: 2vw;
+  width: 50%;
+  margin: 2% auto;
+
+  align-self: center;
+  justify-self: center;
+}
+
+#reloadR {
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#reloadR:hover {
+  animation: zoom 0.5s infinite alternate;
+  color: green;
+}
+
+#comoJugar {
+  font-family: "west";
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000; /* Higher than other elements */
+  padding: 20px;
+  background-image: url("img/comoJugar.jpg");
+  background-size: contain;
+  height: 900px;
+  width: 680px;
+  grid-template-columns: 10% 8% 5% 10% 57% 10%;
+  grid-template-rows: 13% 5% 5% 10% 5% 10% 5% 10% 5% 10% 10% 10% 7%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#tituloIns {
+  font-size: 2vw;
+  font-weight: bold;
+  justify-self: center;
+  grid-column: 1/-1;
+  grid-row: 2;
+}
+
+#comoJugar img {
+  width: 50%;
+}
+
+#introIns {
+  font-size: 1.4vw;
+  justify-self: center;
+  grid-column: 2/-2;
+  grid-row: 4;
+}
+
+#heartIns {
+  grid-column: 2;
+  grid-row: 6;
+}
+
+#textHeartIns {
+  font-size: 1.3vw;
+  grid-column: 4/-2;
+  grid-row: 6;
+}
+
+#shieldIns {
+  grid-column: 2;
+  grid-row: 8;
+}
+
+#textShieldIns {
+  font-size: 1.3vw;
+  grid-column: 4/-2;
+  grid-row: 8;
+}
+
+#actionIns {
+  grid-column: 2;
+  grid-row: 10;
+}
+
+#textActionIns {
+  font-size: 1.3vw;
+  grid-column: 4/-2;
+  grid-row: 10;
+}
+
+/*mediaquerys*/
+
+@media (max-width: 1405px) {
+  #fondo {
+    width: 1107px;
+    height: 864px;
+  }
+  #victory-screen {
+    height: 864px;
+  }
+
+  #youDied {
+    height: 864px;
+  }
+
+  #cartel {
+    width: 612px;
+    height: 864px;
+  }
+
+  #contrato {
+    width: 756px;
+    height: 864px;
+  }
+
+  #registerForm {
+    width: 756px;
+    height: 864px;
+  }
+
+  #comoJugar {
+    height: 810px;
+    width: 612px;
+  }
+}
+
+@media (max-width: 1205px) {
+  #fondo {
+    width: 940px;
+    height: 734px;
+  }
+  #victory-screen {
+    height: 734px;
+  }
+
+  #youDied {
+    height: 734px;
+  }
+
+  #cartel {
+    width: 520px;
+    height: 734px;
+  }
+
+  #contrato {
+    width: 642px;
+    height: 734px;
+  }
+
+  #registerForm {
+    width: 642px;
+    height: 734px;
+  }
+
+  #comoJugar {
+    font-size: 1.8vw;
+    height: 668px;
+    width: 520px;
+  }
+  
+}
+
+@media (max-width: 1005px) {
+  #fondo {
+    width: 752px;
+    height: 587px;
+  }
+
+  #victory-screen {
+    height: 587px;
+  }
+
+  #youDied img {
+    width: 100%;
+  }
+
+  #cartel {
+    width: 416px;
+    height: 587px;
+  }
+
+  #contrato {
+    width: 520px;
+    height: 587px;
+  }
+
+  #cartel div {
+    font-size: 2vw;
+  }
+
+  #contrato div {
+    font-size: 2vw;
+  }
+
+  #registerForm {
+    width: 520px;
+    height: 587px;
+  }
+
+  #modal {
+    font-size: 1.5vw;
+  }
+
+  .modal-header {
+    font-size: 1.7vw;
+  }
+
+  #comoJugar {
+    font-size: 2vw;
+    height: 534px;
+    width: 416px;
+  }
+}
+
+@media (max-width: 765px) {
+  #fondo {
+    width: 601px;
+    height: 469px;
+  }
+  #victory-screen {
+    height: 469px;
+  }
+
+  #youDied {
+    font-size: 3vw;
+  }
+  #cartel div {
+    font-size: 2.5vw;
+  }
+
+  #contrato {
+    width: 416px;
+    height: 469px;
+  }
+
+  #registerForm {
+    width: 416px;
+    height: 469px;
+  }
+
+  #modal {
+    font-size: 1.8vw;
+  }
+
+  .modal-header {
+    font-size: 2vw;
+  }
+
+  #comoJugar {
+    font-size: 2.3vw;
+    height: 427px;
+    width: 332px;
+  }
+}
+
+@media (max-width: 600px) {
+  #comoJugar {
+    font-size: 2.5vw;
+    width: 278px;
+    height: 362px;
+  }
+}
