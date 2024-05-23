@@ -107,17 +107,17 @@
 
 @font-face {
   font-family: "Chomsky";
-  src: url("Chomsky.woff") format("woff");
+  src: url("fonts/Chomsky.woff") format("woff");
 }
 
 @font-face {
   font-family: "west";
-  src: url("west.woff") format("woff");
+  src: url("fonts/west.woff") format("woff");
 }
 
 @font-face {
   font-family: "west2";
-  src: url("west2.woff") format("woff");
+  src: url("fonts/west2.woff") format("woff");
 }
 
 /*^Fondo estatico*/
