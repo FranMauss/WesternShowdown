@@ -72,7 +72,7 @@
 
                 if ($queryJ && $queryIA) {
                     $html = "<div id='ranking'><p>Ranking</p>";
-                    $html .= "<table><thead><tr><th>Nombre</th><th>Victorias</th><th>Derrotas</th><th>Victoria más rápida</th></tr></thead><tbody>";
+                    $html .= "<table><thead><tr><th>Nombre</th><th>Victorias</th><th>Derrotas</th><th>Victoria mas rapida</th></tr></thead><tbody>";
                     $consultaTable = "SELECT * FROM `ranking` ORDER BY `victorias` DESC LIMIT 5";
                     $resultado = mysqli_query($conexion, $consultaTable);
                     while ($fila = mysqli_fetch_array($resultado)) {
