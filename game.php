@@ -29,19 +29,19 @@
       <p>Instrucciones</p>
     </div>
     <div id="introIns">
-      <p>Bienvenido a Western Showdown, al principio del turno de cada jugador, este robara hasta tener 5 cartas.</p>
+      <p>Bienvenido a Western Showdown, al principio del turno de cada jugador, este roba hasta tener 5 cartas.</p>
     </div>
     <div id="heartIns"><img src="img/heart.jpg"></div>
     <div id="textHeartIns">
-      <p>Empezaras la partida con 8 puntos de salud y para ganar deberas reducir la salud del oponente a 0. Tu vida no puede ser superior a 8.</p>
+      <p>Empiezas la partida con 8 puntos de salud y para ganar debes reducir la salud del oponente a 0. Tu vida no puede ser superior a 8.</p>
     </div>
     <div id="shieldIns"><img src="img/defensa.jpg"></div>
     <div id="textShieldIns">
-      <p>¡Ten cuidado! Si el rival tiene la defensa activada esto anulara la siguente perdida de salud. La defensa no se acumula.</p>
+      <p>¡Ten cuidado! Cuando el rival tiene la defensa activada, esto anula la siguente perdida de salud. La defensa no se acumula.</p>
     </div>
     <div id="actionIns"><img src="img/bullet.jpg"></div>
     <div id="textActionIns">
-      <p>Tendras 2 acciones por turno... Pero no todas las cartas consumen acciones</p>
+      <p>Tienes 2 acciones por turno... Pero no todas las cartas consumen acciones.</p>
     </div>
   </div>
   <?php
